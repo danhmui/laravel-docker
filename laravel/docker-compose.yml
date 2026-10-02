@@ -37,6 +37,15 @@ services:
     networks:
       - laravel-net
 
+  flask:
+    build: ./flask
+    container_name: flask_app
+    ports:
+      - "5001:5000"
+    environment:
+      - FLASK_ENV=development
+    restart: unless-stopped
+    
 networks:
   laravel-net:
     driver: bridge
